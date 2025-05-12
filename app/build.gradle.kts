@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.marcuspereira.flowmoneynew"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.marcuspereira.flowmoneynew"
