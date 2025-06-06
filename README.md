@@ -5,8 +5,7 @@ Esse é um aplicativo Android nativo desenvolvido em Kotlin com o objetivo de aj
 ## 🚀 Funcionalidades
 - Registro de despesas com valores personalizados
 - Cálculo automático do total de gastos
-- Criação e exclusão de categorias
-- Interface limpa e intuitiva para fácil visualização das despesas
+- Interface simples e intuitiva
 
 
 ## :camera_flash: Screenshots
