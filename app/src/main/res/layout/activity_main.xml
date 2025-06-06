@@ -137,6 +137,7 @@
         android:background="@drawable/bg_btn_rounded_black"
         android:fontFamily="@font/averia_libre_light"
         android:text="@string/add_expenses"
+        android:textSize="16sp"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textStyle="bold"
@@ -187,6 +188,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/bg_btn_rounded_purple"
             android:text="@string/add"
+            android:textSize="16sp"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textStyle="bold" />
