@@ -9,11 +9,12 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.marcuspereira.flowmoneynew.R
 
-class CategoryListAdapter :
+class CategoryListAdapter
+:
     ListAdapter<CategoryUiData, CategoryListAdapter.CategoryViewHolder>(CategoryListAdapter) {
 
-    private lateinit var onClick: (CategoryUiData) -> Unit
-    private lateinit var onLongClick: (CategoryUiData) -> Unit
+    private var onClick: ((CategoryUiData) -> Unit)? = null
+    private var onLongClick: ((CategoryUiData) -> Unit)? = null
 
     fun setOnClickListener(onClick: (CategoryUiData) -> Unit) {
         this.onClick = onClick
@@ -43,18 +44,19 @@ class CategoryListAdapter :
 
         fun bind(
             category: CategoryUiData,
-            onClick: (CategoryUiData) -> Unit,
-            onLongClick: (CategoryUiData) -> Unit
+            onClick: ((CategoryUiData) -> Unit)?,
+            onLongClick: ((CategoryUiData) -> Unit)?
         ) {
+
             container.isSelected = category.isSelected
             ivCategory.setImageResource(category.icon)
 
             view.setOnClickListener {
-                onClick.invoke(category)
+                onClick?.invoke(category)
             }
 
             view.setOnLongClickListener {
-                onLongClick.invoke(category)
+                onLongClick?.invoke(category)
                 true
             }
         }

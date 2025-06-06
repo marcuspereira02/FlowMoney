@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FlowMoneyNew</string>
+    <string name="create">Criar</string>
+    <string name="delete">Excluir</string>
+    <string name="update">Atualizar</string>
+    <string name="category_expense">Categoria da despesa</string>
+    <string name="expense_value">Valor: ex: 25.00</string>
+    <string name="expense_name_e_g_snack">Nome da despesa: ex: Lanche</string>
+    <string name="create_expense_title">Adicionar despesa</string>
+    <string name="update_expense_title">Atualizar despesa</string>
+    <string name="cancel">Cancelar</string>
+    <string name="category_delete_description">Ao apagar a categoria você também irá excluir as suas despesas.</string>
+    <string name="delete_category">Excluir categoria</string>
+    <string name="create_category">Criar uma categoria</string>
+    <string name="select_color_for_category">Selecione uma cor para a categoria</string>
+    <string name="total_expenses">Despesas totais</string>
+    <string name="expense_category">Categoria de despesa </string>
+    <string name="expense">Despesas</string>
+    <string name="add_expenses">Adicionar despesa</string>
+    <string name="attention">Atenção!</string>
+    <string name="add_new_category">Por favor, adicione uma categoria nova.</string>
+    <string name="add">Adicionar</string>
+    <string name="select_color">Selecione uma cor</string>
+    <string name="select_category">Selecione uma categoria</string>
+    <string name="write_expense">Por favor, escreva uma despesa.</string>
+    <string name="write_value">Por favor, escreva um valor.</string>
+</resources>
