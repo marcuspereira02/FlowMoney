@@ -1,5 +1,6 @@
 package com.marcuspereira.moneyflow
 
+import android.graphics.drawable.GradientDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.marcuspereira.flowmoneynew.ExpenseWithCategory
 import com.marcuspereira.flowmoneynew.R
 import java.text.NumberFormat
 import java.util.Locale
@@ -39,23 +41,29 @@ class ExpenseListAdapter :
         private val ivCategoryExpense = view.findViewById<ImageView>(R.id.iv_category_expense)
         private val tvTitleExpense = view.findViewById<TextView>(R.id.tv_title_expense)
         private val tvExpense = view.findViewById<TextView>(R.id.tv_expense)
+        private var colorCategory = view.findViewById<View>(R.id.view_ribbon)
 
         fun bind(
             expense: ExpenseUiData,
             callback: (ExpenseUiData) -> Unit,
         ) {
-            val locale = Locale("pt","BR")
-            val currencyFormat = NumberFormat.getCurrencyInstance(locale)
-            val expenseFormatted = currencyFormat.format(expense.value)
+            val expenseFormatted = String.format(("%.2f"),expense.value)
+            val background = colorCategory.background
 
-            tvTitleExpense.text = expense.name
-            ivCategoryExpense.setImageResource(expense.icon)
-            tvExpense.text = "-$expenseFormatted"
+            if(background is GradientDrawable){
+                background.setColor(expense.color)
+            }
+
+
+            tvTitleExpense.text = expense.text
+            ivCategoryExpense.setImageResource(expense.category)
+            tvExpense.text = "-R$ $expenseFormatted"
 
             view.setOnClickListener {
                 callback.invoke(expense)
             }
         }
+
     }
 
     companion object : DiffUtil.ItemCallback<ExpenseUiData>() {
@@ -64,7 +72,7 @@ class ExpenseListAdapter :
         }
 
         override fun areContentsTheSame(oldItem: ExpenseUiData, newItem: ExpenseUiData): Boolean {
-            return oldItem.name == newItem.name
+            return oldItem.text == newItem.text
         }
 
     }

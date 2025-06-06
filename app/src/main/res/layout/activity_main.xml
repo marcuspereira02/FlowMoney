@@ -8,17 +8,27 @@
     android:background="@color/grey"
     tools:context=".MainActivity">
 
+    <View
+        android:id="@+id/ic_app"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/ic_money"
+        android:layout_margin="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:fontFamily="@font/averia_libre"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/averia_libre_light"
         android:text="MoneyFlow"
         android:textColor="@color/white"
         android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/ic_app"
+        app:layout_constraintStart_toEndOf="@id/ic_app"
+        app:layout_constraintTop_toTopOf="@+id/ic_app" />
 
     <ImageView
         android:id="@+id/iv_bg_total_expenses"
@@ -36,9 +46,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:fontFamily="@font/averia_libre"
-        android:text="Total expenses"
+        android:fontFamily="@font/averia_libre_light"
+        android:text="@string/total_expenses"
         android:textColor="@color/white"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@id/iv_bg_total_expenses"
         app:layout_constraintTop_toTopOf="@id/iv_bg_total_expenses" />
 
@@ -47,10 +58,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:fontFamily="@font/averia_libre"
+        android:fontFamily="@font/averia_libre_light"
         android:text="R$ 0"
         android:textColor="@color/white"
-        android:textSize="32sp"
+        android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@id/iv_bg_total_expenses"
         app:layout_constraintTop_toBottomOf="@id/tv_total_expense_label" />
@@ -60,8 +71,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:fontFamily="@font/averia_libre"
-        android:text="Expense category"
+        android:fontFamily="@font/averia_libre_light"
+        android:text="@string/expense_category"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@id/iv_bg_total_expenses"
@@ -84,8 +95,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:fontFamily="@font/averia_libre"
-        android:text="Expense"
+        android:fontFamily="@font/averia_libre_light"
+        android:text="@string/expense"
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@id/rv_categories"
@@ -113,9 +124,9 @@
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="@id/iv_bg_expenses"
-        app:layout_constraintEnd_toEndOf="@+id/iv_bg_expenses"
+        app:layout_constraintEnd_toEndOf="@id/iv_bg_expenses"
         app:layout_constraintStart_toStartOf="@id/iv_bg_expenses"
-        app:layout_constraintTop_toTopOf="@+id/iv_bg_expenses"
+        app:layout_constraintTop_toTopOf="@id/iv_bg_expenses"
         tools:listitem="@layout/item_expense" />
 
     <Button
@@ -123,11 +134,65 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:backgroundTint="@color/black"
-        android:fontFamily="@font/averia_libre"
-        android:text="Add expenses"
+        android:background="@drawable/bg_btn_rounded_black"
+        android:fontFamily="@font/averia_libre_light"
+        android:text="@string/add_expenses"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+
+    <LinearLayout
+        android:id="@+id/ll_empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_attention_empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/averia_libre_light"
+            android:text="@string/attention"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_description_empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/averia_libre_light"
+            android:text="@string/add_new_category"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/iv_empty"
+            android:layout_width="300dp"
+            android:layout_height="350dp"
+            android:src="@drawable/img_new_category" />
+
+        <Button
+            android:id="@+id/btn_category_empty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_btn_rounded_purple"
+            android:text="@string/add"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
